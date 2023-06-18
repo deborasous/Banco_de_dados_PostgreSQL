@@ -5,8 +5,6 @@ CREATE TABLE Projetos (
   descricao VARCHAR(100),
   data_inicio DATE,
   data_prazo DATE,
-  categoria_id INTEGER,
-  Foreign Key (categoria_id) REFERENCES Categorias(id)
 );
 CREATE TABLE Tarefas(
   id INTEGER PRIMARY KEY,
@@ -15,7 +13,9 @@ CREATE TABLE Tarefas(
   data_prazo DATE,
   concluida VARCHAR(100),
   projeto_id INTEGER,
+  categoria_id INTEGER,
   Foreign Key (projeto_id) REFERENCES Projetos(id)
+  Foreign Key (categoria_id) REFERENCES Categorias(id)
 );
 CREATE TABLE Categorias(
   id INTEGER PRIMARY KEY,
