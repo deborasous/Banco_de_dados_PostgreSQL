@@ -12,4 +12,6 @@ CREATE TABLE Tarefas(
   data_inicio DATE,
   data_prazo DATE,
   concluida VARCHAR
+  projeto_id INTEGER,
+  Foreign Key (projeto_id) REFERENCES Projetos(id)
 );
