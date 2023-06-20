@@ -45,3 +45,22 @@ VALUES
   (4, 'Tarefa 4','Descrição da Tarefa 4', '2023-03-10', '2023-03-20', false, 2, 1),
   (5, 'Tarefa 5','Descrição da Tarefa 5', '2023-05-05', '2023-05-15', false, 3, 2);
 
+/*--- Scripts SQL ---*/
+/*Tarefas concluídas*/
+SELECT *
+FROM tarefas
+WHERE concluida = 'true';
+
+/*Tarefas atrasadas*/
+SELECT t.*
+FROM tarefas t
+JOIN projetos p ON t.projeto_id = p.id
+WHERE t.concluida = 'false'
+AND  t.data_prazo > p.data_prazo;
+
+
+/*--- Alterar valores das colunas ---*/
+
+UPDATE tarefas
+set data_prazo = '2023-05-01'
+WHERE id = 2;
